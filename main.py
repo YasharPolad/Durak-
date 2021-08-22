@@ -1,5 +1,6 @@
 from classes import *
 import os
+import platform
 
 # MOVE VALIDATION FUNCTIONS
 
@@ -62,7 +63,10 @@ def goesFirst(player1, computer, trump):
 
 def UI(attacker, defender, trump, round):
     global mode
-    os.system("cls")
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
 
     print("WELCOME TO THE GAME OF DURAK\n")
     print("TRUMP CARD:")
@@ -86,7 +90,10 @@ def UI(attacker, defender, trump, round):
     print("Table")
     print("") if len(round) == 0 else [card.show() for card in round]
    
-os.system("cls")         
+if platform.system() == "Windows":
+    os.system("cls")
+else:
+    os.system("clear")         
 print("WELCOME TO THE GAME OF DURAK")
 print("FOR TEST MODE ENTER 0. FOR GAME MODE ENTER 1.")
 mode = int(input())
